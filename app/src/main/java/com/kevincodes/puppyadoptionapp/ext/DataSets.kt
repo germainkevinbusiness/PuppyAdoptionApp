@@ -38,6 +38,26 @@ object DataSets {
                     190.77F
                 )
             )
+            add(
+                Puppy(
+                    R.drawable.sergiosouza_unsplash,
+                    "Souza",
+                    "Male",
+                    false,
+                    "Likes to cuddle",
+                    210.00F
+                )
+            )
+            add(
+                Puppy(
+                    R.drawable.erin_minuskin_unsplash,
+                    "Erin",
+                    "Female",
+                    false,
+                    "Very playful",
+                    205.00F
+                )
+            )
         }
         return puppyList
     }

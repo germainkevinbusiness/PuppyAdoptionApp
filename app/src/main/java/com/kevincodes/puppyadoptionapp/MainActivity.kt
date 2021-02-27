@@ -3,6 +3,7 @@ package com.kevincodes.puppyadoptionapp
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
@@ -17,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import com.kevincodes.puppyadoptionapp.ext.PuppyRow
 import com.kevincodes.puppyadoptionapp.data.Puppy
 import com.kevincodes.puppyadoptionapp.ext.DataSets
+import com.kevincodes.puppyadoptionapp.ext.Header
 import com.kevincodes.puppyadoptionapp.ext.PuppyList
 import com.kevincodes.puppyadoptionapp.ui.theme.PuppyAdoptionAppTheme
 import kotlinx.coroutines.CoroutineScope
@@ -27,8 +29,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MyApp {
-                val mList = DataSets.createPuppyList()
-                PuppyList(mList, this@MainActivity)
+                HomeScreenContent()
             }
         }
     }
@@ -43,12 +44,20 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @Composable
+    fun HomeScreenContent() {
+        Column {
+            Header()
+            val mList = DataSets.createPuppyList()
+            PuppyList(mList, this@MainActivity)
+        }
+    }
+
     @Preview(showBackground = true)
     @Composable
     fun DefaultPreview() {
         PuppyAdoptionAppTheme {
-            val mList = DataSets.createPuppyList()
-            PuppyList(mList, this@MainActivity)
+            HomeScreenContent()
         }
     }
 }

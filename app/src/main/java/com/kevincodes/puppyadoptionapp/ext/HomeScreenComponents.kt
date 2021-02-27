@@ -8,23 +8,53 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.kevincodes.puppyadoptionapp.R
 import com.kevincodes.puppyadoptionapp.data.Puppy
 import com.kevincodes.puppyadoptionapp.ui.theme.PuppyAdoptionAppTheme
 import com.kevincodes.puppyadoptionapp.ui.theme.Purple200
 
+@Composable
+fun Header() {
+    Row(
+        horizontalArrangement = Arrangement.Start,
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(56.dp)
+            .background(Color.White)
+            .padding(start = 16.dp, end = 16.dp)
+    ) {
+        val typography = MaterialTheme.typography
+        Image(
+            painter = painterResource(
+                id = R.drawable.ic_baseline_pets_24,
+            ),
+            contentDescription = null
+        )
+        Column(modifier = Modifier.padding(start = 16.dp, end = 16.dp)) {
+            Text(text = "Adoption Center :)", style = typography.h5)
+        }
+    }
+}
+
+@Preview("Header preview")
+@Composable
+fun HeaderPreview() {
+    PuppyAdoptionAppTheme {
+        Header()
+    }
+}
 
 @Composable
 fun PuppyRow(puppy: Puppy, onClick: () -> Unit) {

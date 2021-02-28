@@ -20,66 +20,72 @@ import com.kevincodes.puppyadoptionapp.ui.theme.PuppyAdoptionAppTheme
 import com.kevincodes.puppyadoptionapp.ui.theme.Purple200
 
 @Composable
-fun DetailsScreen(puppy: Puppy) {
+fun DetailsScreen(puppyId: Int?) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .fillMaxHeight()
     ) {
-        Column {
-            val typography = MaterialTheme.typography
-            Image(
-                painter = painterResource(id = puppy.image),
-                contentDescription = null,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(250.dp),
-                contentScale = ContentScale.Crop
-            )
-            Column(
-                Modifier
-                    .background(Color.White)
-                    .padding(8.dp)
-                    .fillMaxWidth()
-            ) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    val isAdultOrNot = if (puppy.isAdult) "Dog" else "Puppy"
-                    Text(
-                        text = puppy.name,
-                        color = Color.Black,
-                        style = typography.body2
-                    )
-                    Text(
-                        text = " ${puppy.gender} ",
-                        color = Purple200,
-                        style = typography.body2
-                    )
-                    Text(
-                        text = isAdultOrNot,
-                        color = Purple200,
-                        style = typography.body2
-                    )
-                }
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 8.dp)
-                ) {
-                    Text(
-                        text = puppy.qualities,
-                        color = Color.Gray,
-                        style = typography.body2
-                    )
-                }
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 8.dp)
-                ) {
-                    Button(onClick = { }) {
-                        Text(text = "Adopt now !")
+        puppyId?.let {
+            DataSets.createPuppyList().forEach { puppy ->
+                if (puppy.id == it) {
+                    Column {
+                        val typography = MaterialTheme.typography
+                        Image(
+                            painter = painterResource(id = puppy.image),
+                            contentDescription = null,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(250.dp),
+                            contentScale = ContentScale.Crop
+                        )
+                        Column(
+                            Modifier
+                                .background(Color.White)
+                                .padding(8.dp)
+                                .fillMaxWidth()
+                        ) {
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                val isAdultOrNot = if (puppy.isAdult) "Dog" else "Puppy"
+                                Text(
+                                    text = puppy.name,
+                                    color = Color.Black,
+                                    style = typography.body2
+                                )
+                                Text(
+                                    text = " ${puppy.gender} ",
+                                    color = Purple200,
+                                    style = typography.body2
+                                )
+                                Text(
+                                    text = isAdultOrNot,
+                                    color = Purple200,
+                                    style = typography.body2
+                                )
+                            }
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(top = 8.dp)
+                            ) {
+                                Text(
+                                    text = puppy.qualities,
+                                    color = Color.Gray,
+                                    style = typography.body2
+                                )
+                            }
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(top = 8.dp)
+                            ) {
+                                Button(onClick = { }) {
+                                    Text(text = "Adopt now !")
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -91,14 +97,6 @@ fun DetailsScreen(puppy: Puppy) {
 @Composable
 fun DetailsScreenPreview() {
     PuppyAdoptionAppTheme {
-        val mData = Puppy(
-            R.drawable.pauline_loroy_unsplash,
-            "Kinzo",
-            "Female",
-            true,
-            "Likes to party",
-            200.56F
-        )
-        DetailsScreen(puppy = mData)
+        DetailsScreen(0)
     }
 }

@@ -1,7 +1,7 @@
 package com.kevincodes.puppyadoptionapp.ext
 
-import android.content.Context
-import android.widget.Toast
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -16,16 +16,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontStyle
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.navigate
 import com.kevincodes.puppyadoptionapp.R
 import com.kevincodes.puppyadoptionapp.data.Puppy
-import com.kevincodes.puppyadoptionapp.ui.theme.PuppyAdoptionAppTheme
 import com.kevincodes.puppyadoptionapp.ui.theme.Purple200
 
+@ExperimentalAnimationApi
 @Composable
-fun Header() {
+fun Header(shouldBackButtonBeVisible: Boolean, title: String, navController: NavHostController) {
     Row(
         horizontalArrangement = Arrangement.Start,
         verticalAlignment = Alignment.CenterVertically,
@@ -36,6 +36,15 @@ fun Header() {
             .padding(start = 16.dp, end = 16.dp)
     ) {
         val typography = MaterialTheme.typography
+        AnimatedVisibility(shouldBackButtonBeVisible) {
+            Image(
+                painter = painterResource(
+                    id = R.drawable.ic_baseline_arrow_back_ios_24,
+                ),
+                contentDescription = null,
+                modifier = Modifier.clickable { navController.popBackStack() }
+            )
+        }
         Image(
             painter = painterResource(
                 id = R.drawable.ic_baseline_pets_24,
@@ -43,16 +52,22 @@ fun Header() {
             contentDescription = null
         )
         Column(modifier = Modifier.padding(start = 16.dp, end = 16.dp)) {
-            Text(text = "Adoption Center :)", style = typography.h5)
+            Text(text = title, style = typography.h5)
         }
     }
 }
 
-@Preview("Header preview")
 @Composable
-fun HeaderPreview() {
-    PuppyAdoptionAppTheme {
-        Header()
+fun PuppyList(
+    puppies: List<Puppy>,
+    navController: NavHostController
+) {
+    LazyColumn(modifier = Modifier.fillMaxWidth()) {
+        items(puppies) { puppy ->
+            PuppyRow(puppy = puppy) {
+                navController.navigate("details/${puppy.id}")
+            }
+        }
     }
 }
 
@@ -102,19 +117,6 @@ fun PuppyRow(puppy: Puppy, onClick: () -> Unit) {
                 color = Color.Gray,
                 style = typography.body2
             )
-        }
-    }
-}
-
-@Composable
-fun PuppyList(puppies: List<Puppy>, context: Context) {
-    Box(modifier = Modifier.fillMaxWidth()) {
-        LazyColumn {
-            items(puppies) { puppy ->
-                PuppyRow(puppy = puppy) {
-                    Toast.makeText(context, puppy.name, Toast.LENGTH_LONG).show()
-                }
-            }
         }
     }
 }

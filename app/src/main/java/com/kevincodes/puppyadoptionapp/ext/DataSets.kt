@@ -10,6 +10,7 @@ object DataSets {
         puppyList.apply {
             add(
                 Puppy(
+                    0,
                     R.drawable.pauline_loroy_unsplash,
                     "Kinzo",
                     "Female",
@@ -20,6 +21,7 @@ object DataSets {
             )
             add(
                 Puppy(
+                    1,
                     R.drawable.karsten_winegeart_unsplash,
                     "Milou",
                     "Male",
@@ -30,6 +32,7 @@ object DataSets {
             )
             add(
                 Puppy(
+                    2,
                     R.drawable.karsten_winegeart_1_unsplash,
                     "Medor",
                     "Male",
@@ -40,6 +43,7 @@ object DataSets {
             )
             add(
                 Puppy(
+                    3,
                     R.drawable.sergiosouza_unsplash,
                     "Souza",
                     "Male",
@@ -50,6 +54,7 @@ object DataSets {
             )
             add(
                 Puppy(
+                    4,
                     R.drawable.erin_minuskin_unsplash,
                     "Erin",
                     "Female",

@@ -20,6 +20,9 @@ import com.kevincodes.puppyadoptionapp.MainActivity
 import com.kevincodes.puppyadoptionapp.MainNavigationActions
 import com.kevincodes.puppyadoptionapp.R
 import com.kevincodes.puppyadoptionapp.data.Puppy
+import com.kevincodes.puppyadoptionapp.ui.theme.Dark0
+import com.kevincodes.puppyadoptionapp.ui.theme.Purple200
+import com.kevincodes.puppyadoptionapp.ui.theme.Purple500
 import com.kevincodes.puppyadoptionapp.ui.theme.Teal200
 import com.kevincodes.puppyadoptionapp.utils.Utils
 
@@ -88,7 +91,8 @@ fun DetailScreen(
                 )
                 Spacer(Modifier.height(16.dp))
                 val groupOfText = buildAnnotatedString {
-                    withStyle(SpanStyle(color = Teal200)) {
+                    val priceColor = if (utils.isNightModeTheme(mainActivity)) Teal200 else Dark0
+                    withStyle(SpanStyle(color = priceColor)) {
                         append("${it.adoptionPrice} USD")
                     }
                     withStyle(SpanStyle(color = MaterialTheme.colors.onSurface)) {
@@ -106,7 +110,15 @@ fun DetailScreen(
                     color = MaterialTheme.colors.secondary
                 )
                 Spacer(Modifier.height(16.dp))
+                val buttonBgColor =
+                    if (utils.isNightModeTheme(mainActivity)) Purple500 else Teal200
+                val buttonContentColor =
+                    if (utils.isNightModeTheme(mainActivity)) Color.White else Dark0
                 Button(
+                    colors = ButtonDefaults.buttonColors(
+                        backgroundColor = buttonBgColor,
+                        contentColor = buttonContentColor
+                    ),
                     onClick = {
                         utils.showToast(
                             context = mainActivity,

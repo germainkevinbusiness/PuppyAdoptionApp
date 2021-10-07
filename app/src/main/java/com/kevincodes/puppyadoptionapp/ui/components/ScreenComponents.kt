@@ -84,7 +84,7 @@ fun PuppyRow(puppy: Puppy, onClick: () -> Unit) {
             Text(
                 text = puppy.qualities,
                 color = Color.Gray,
-                style = typography.body2
+                style = typography.body1
             )
             Spacer(Modifier.height(8.dp))
             Row(
@@ -94,19 +94,19 @@ fun PuppyRow(puppy: Puppy, onClick: () -> Unit) {
                 Text(
                     text = puppy.name,
                     color = Color.Black,
-                    style = typography.body2
+                    style = typography.body1
                 )
                 Text(text = dividerDot, color = Color.Black)
                 Text(
                     text = " ${puppy.gender} ",
                     color = Purple200,
-                    style = typography.body2
+                    style = typography.body1
                 )
                 Text(text = dividerDot, color = Color.Black)
                 Text(
                     text = isAdultOrNot,
                     color = Purple200,
-                    style = typography.body2
+                    style = typography.body1
                 )
             }
             Spacer(Modifier.height(8.dp))
@@ -148,7 +148,7 @@ fun DetailsScreen(puppyId: Int?) {
                             end = 8.dp,
                             bottom = 0.dp
                         ),
-                        style = typography.body2
+                        style = typography.body1
                     )
                     Spacer(Modifier.height(16.dp))
                     Text(

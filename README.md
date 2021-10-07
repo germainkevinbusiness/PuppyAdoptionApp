@@ -8,7 +8,7 @@
 
 ![alt Third Screenshot of the app](https://github.com/kevingermainbusiness/PuppyAdoptionApp/blob/master/screenshots/puppy_adoption_app_flyer.png)
 
-## A look at how the detail scren looks on an Android Emulator
+## A look at how the detail scren looks on an Android Emulator with light and dark mode
 
 ![alt 1st Screenshot of the app](https://github.com/kevingermainbusiness/PuppyAdoptionApp/blob/master/screenshots/device-2021-10-07-135712.png)
 ![alt 2nd Screenshot of the app](https://github.com/kevingermainbusiness/PuppyAdoptionApp/blob/master/screenshots/device-2021-10-07-135316.png)

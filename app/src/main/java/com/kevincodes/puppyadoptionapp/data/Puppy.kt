@@ -1,9 +1,13 @@
 package com.kevincodes.puppyadoptionapp.data
 
+import android.os.Parcelable
 import androidx.annotation.DrawableRes
 import androidx.compose.runtime.Immutable
 import com.kevincodes.puppyadoptionapp.R
+import kotlinx.parcelize.Parcelize
 
+
+@Parcelize
 @Immutable
 data class Puppy(
     val id: Int,
@@ -13,7 +17,7 @@ data class Puppy(
     val isAdult: Boolean,
     val qualities: String,
     val adoptionPrice: Float
-)
+) : Parcelable
 
 object PuppiesRepo {
     fun getPuppies(): List<Puppy> = puppies

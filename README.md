@@ -2,7 +2,7 @@
 
 ### The youtube video about the challenge by the android developer team: https://youtu.be/sZK3HSX4cRU
 
-### The description of the challenge I won in the first week is at: https://android-developers.googleblog.com/2021/02/android-dev-challenge-lift-off-with.html
+### The description of this challenge I won in the first week is at: https://android-developers.googleblog.com/2021/02/android-dev-challenge-lift-off-with.html
 
 ## A look at how the app looks when installed on an Android Emulator
 

@@ -1,4 +1,4 @@
-# PuppyAdoptionApp - A nice puppy adoption app written with Jetpack compose
+# A nice puppy adoption app written with Jetpack compose
 
 ## A look at how the app looks when installed on an Android Emulator
 

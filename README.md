@@ -6,7 +6,8 @@
 
 ## A look at how the app looks when installed on an Android Emulator
 
-![alt Third Screenshot of the app](https://github.com/kevingermainbusiness/PuppyAdoptionApp/blob/master/screenshots/puppy_adoption_app_flyer.png)
+<!-- ![alt Third Screenshot of the app](https://github.com/kevingermainbusiness/PuppyAdoptionApp/blob/master/screenshots/puppy_adoption_app_flyer.png) -->
+<img src="screenshots/puppy_adoption_app_flyer.png" alt="Jetpack Compose Samples" width="512" />
 
 ## A look at how the detail scren looks on an Android Emulator with light mode on
 
